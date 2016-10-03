@@ -64,17 +64,17 @@
 
 					<div class="inputfield">
 						<label for="first-name" class="inputLabel">First name:</label> <input
-							name="first-name" type="text"></input>
+							name="first-name" type="text" placeholder="First Name"></input>
 					</div>
 
 					<div class="inputfield">
 						<label for="last-name" class="inputLabel">Last name:</label> <input
-							name="last-name" type="text"></input>
+							name="last-name" type="text" placeholder="Last Name"></input>
 					</div>
 
 					<div class="inputfield">
 						<label for="dob" class="inputLabel">Date of birth:</label> <input
-							name="dob" type="text"></input>
+							name="dob" type="text" placeholder="DD/MM/YYYY"></input>
 					</div>
 
 					<div class="inputfield">
