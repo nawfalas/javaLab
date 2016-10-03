@@ -1,0 +1,141 @@
+@CHARSET "UTF-8";
+
+.body{
+	padding: 0;
+	margin: 0;
+	background-color: rgb(17,142,247);
+	text-align: center;
+}
+
+.container{
+	margin: 0px;
+	border: 15px solid #427ddc;
+	border-radius: 5px;
+	background-color: #3f86d9;
+	text-align: center;
+	position: relative;
+	list-style: name;
+	list-style-position: inside;
+	height: 30%;
+	width: 30%;
+	
+}
+.center{
+	float: center;
+	position: relative;
+	background-color: red;
+	
+}
+
+.title{
+	font-family: arial;
+	font-size: 36px;
+	color: white;
+	padding: 30px;
+	margin: 0;
+	font-weight: normal;
+	border: 5px black;
+	
+}
+
+.titleLink{
+	text-align: left;
+	font-family: arial;
+	font-size: 24px;
+	color: #e6e6e6;
+	line-height: 80px;
+	list-style-type: disc;
+	padding-left: 30px;
+}
+
+.titleLink a:link, .titleLink a:hover, .titleLink a:visited{
+	color: white;
+	text-decoration: none;
+} 
+
+.green{
+	background-color: rgb(0,129,123);
+}
+
+.blue{
+	background-color: rgb(0,255,129)
+}
+
+.underline{
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+#flightlogo{
+	width: 30%;
+	margin-bottom: 25px;
+}
+
+.inputField{
+	text-align: left;
+	font-family: arial;
+	font-size: 24px;
+	line-height: 25px;
+	list-style-type: disc;
+	padding-left: 0px;
+	padding: 5px;
+}
+
+.inputLabel{
+	font-family: arial;
+	color: #e6e6e6;
+	margin-right: 10px;
+	line-height: 27px;
+}
+
+.input, select{
+	vertical-align: middle;
+	height: 40px;
+	padding-left: 7px;
+}
+
+#submitField{
+	text-align: center;
+}
+
+#submitBtn{
+	width: 100px;
+	height: 30px;
+	margin-bottom: 25px;
+	border: 0px solid gray;
+	border-radius: 15px;
+}
+
+#submitBtn:hover{
+	background-color: #e62e00;
+	color:white;
+}
+
+.fieldset{
+	margin: 0px;
+	margin-top: 0px;
+	border: 3px sold rgb(192,192,192);	
+}
+.form{
+	border:0px;
+	background-color: white;
+}
+.titleLogin{
+	font-size: 20px;
+	color: white;
+	
+}
+
+.ui-widget-content{
+	font-size: 20px;
+	background-color: green;
+	color: #ff00ff;
+	border: 5px;
+}
+
+.div {
+    display: -webkit-flex; /* Safari */
+    -webkit-align-items: center; /* Safari 7.0+ */
+    display: flex;
+    align-items: center;
+}
