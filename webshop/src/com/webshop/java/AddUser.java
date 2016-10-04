@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
+import com.webshop.models.DbConnector;
 import com.webshop.models.Gender;
 import com.webshop.models.User;
 
@@ -50,7 +50,7 @@ public class AddUser extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
+
 		User user = new User();
 		request.setAttribute("errors", false);
 
@@ -131,7 +131,20 @@ public class AddUser extends HttpServlet {
 			Date dob = cal.getTime();
 			user.setDob(dob);
 			System.out.println(dob);
-
+			
+			DbConnector db = new DbConnector();
+			ArrayList<User> us= db.getUsers();
+			
+			for(User u: us){
+				System.out.println(u.getFirstName());
+				System.out.println(u.getLastName());
+				System.out.println(u.getStreetName());
+				System.out.println(u.getCity());
+				System.out.println(u.getPostCode());
+				System.out.println("USER ID: "+u.getUserId());
+				System.out.println("Password: "+ u.getPassword());
+			}
+			
 		} else {
 			System.out.println("invalid date of birth");
 			request.setAttribute("errors", true);
@@ -147,7 +160,7 @@ public class AddUser extends HttpServlet {
 		}else{
 			ArrayList<User> uList = new ArrayList<>();
 			uList.add(user);
-			response.sendRedirect("/webshop/");
+			response.sendRedirect("/webshop/redirect");
 		}
 	}
 }

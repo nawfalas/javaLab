@@ -15,6 +15,15 @@
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <link rel="stylesheet" href="/resources/demos/style.css">
 
+ <nav>
+    <h1>Webshop</h1>
+    <ul>
+      <li> <a href="AddUser">Sign up</a></li>
+
+      <li><a href="UserLogin">User login</a></li>
+    </ul>
+  </nav>
+
 
 </head>
 <body>

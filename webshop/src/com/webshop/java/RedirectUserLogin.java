@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class MainPage
  */
-@WebServlet("")
+@WebServlet("/redirect")
 public class RedirectUserLogin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

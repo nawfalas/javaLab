@@ -23,6 +23,18 @@ public class User {
 	public User(){
 		address = new Adress();
 	}
+	public User(String firstName, String lastName, int idNumber, 
+			String address, String city, int postCode, String country, String password,
+			String email){
+		this.firstName=firstName;
+		this.lastName = lastName;
+		this.idNumber = idNumber;
+		this.email = email;
+		this.address = new Adress(address, city, country, postCode);
+		this.password = password;
+		
+		
+	}
 	
 	public int getUserId(){
 		return idNumber;
@@ -101,6 +113,9 @@ public class User {
 	
 	public void setPassword(String password){
 		this.password = password;
+	}
+	public String getPassword(){
+		return this.password;
 	}
 
 	@Override

@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.webshop.models.User;
+
 /**
  * Servlet implementation class LoginUser
  */
@@ -37,7 +39,16 @@ public class UserLogin extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		User user = new User();
+		request.setAttribute("errors", false);
+		System.out.println("TEST");
+		if(user.setEmail(request.getParameter("username"))){
+			user.setPassword(request.getParameter("password"));
+		}else{
+			request.setAttribute("errors", true);
+			request.setAttribute("email_error", true);
+		}
+		
 	}
 
 }
