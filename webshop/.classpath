@@ -32,5 +32,6 @@
 	<classpathentry kind="lib" path="/Users/Kamil/server/apache-tomcat-8.0.33/lib/tomcat-util.jar"/>
 	<classpathentry kind="lib" path="/Users/Kamil/server/apache-tomcat-8.0.33/lib/tomcat-websocket.jar"/>
 	<classpathentry kind="lib" path="/Users/Kamil/server/apache-tomcat-8.0.33/lib/websocket-api.jar"/>
+	<classpathentry kind="lib" path="/Users/Kamil/server/javax.mail.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

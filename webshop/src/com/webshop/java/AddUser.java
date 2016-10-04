@@ -1,7 +1,6 @@
 package com.webshop.java;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -14,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 
 import com.webshop.models.Gender;
 import com.webshop.models.User;
@@ -52,7 +52,6 @@ public class AddUser extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		User user = new User();
-
 		request.setAttribute("errors", false);
 
 		
@@ -71,6 +70,40 @@ public class AddUser extends HttpServlet {
 			request.setAttribute("lastname_error", true);
 
 		}
+		if(!user.setEmail(request.getParameter("email"))){
+			System.out.println("empty email error");
+			request.setAttribute("errors", true);
+			request.setAttribute("email_error", true);
+		}
+		
+		user.setAddress(request.getParameter("street-name"),
+				request.getParameter("city"),
+				request.getParameter("country"));
+		try{
+			String tmp = request.getParameter("post-code").trim().replace(" ","");
+			user.setPostCode(Integer.parseInt(tmp));
+		}catch(NumberFormatException e){
+			System.out.println("Postcode error, number only!");
+			request.setAttribute("errors",true);
+			request.setAttribute("postCode_error", true);
+		}
+		if(user.getStreetName().length() == 0){
+			System.out.println("empty street name error");
+			request.setAttribute("errors", true);
+			request.setAttribute("streetName_error",true);
+		}
+		if(user.getCity().length() ==0){
+			System.out.println("empty city error");
+			request.setAttribute("errors", true);
+			request.setAttribute("city_error", true);
+		}
+		if(user.getCountry().length()==0){
+			System.out.println("country error");
+			request.setAttribute("errors", true);
+			request.setAttribute("country_error", true);
+		}
+		
+		
 		String dob_raw = request.getParameter("dob");
 		String dobArray[] = dob_raw.split("\\/");
 
@@ -92,13 +125,13 @@ public class AddUser extends HttpServlet {
 
 			Calendar cal = Calendar.getInstance();
 			cal.set(Calendar.YEAR, Integer.parseInt(dob_year));
-			cal.set(Calendar.MONTH, Integer.parseInt(dob_month));
+			cal.set(Calendar.MONTH, Integer.parseInt(dob_month)-1);
 			cal.set(Calendar.DAY_OF_MONTH, Integer.parseInt(dob_day));
 
 			Date dob = cal.getTime();
 			user.setDob(dob);
 			System.out.println(dob);
-			
+
 		} else {
 			System.out.println("invalid date of birth");
 			request.setAttribute("errors", true);
@@ -114,7 +147,7 @@ public class AddUser extends HttpServlet {
 		}else{
 			ArrayList<User> uList = new ArrayList<>();
 			uList.add(user);
-			response.sendRedirect("/web7/");
+			response.sendRedirect("/webshop/");
 		}
 	}
 }

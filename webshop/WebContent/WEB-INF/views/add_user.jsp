@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Kamils Place</title>
+<title>Webshop</title>
 <link rel="stylesheet" href="resources/css/theme.css" />
 
 <meta charset="utf-8">
@@ -41,6 +41,41 @@
 			%>
 
 			<%
+				if (request.getAttribute("email_error") != null) {
+			%>
+			<li class="error">Email error</li>
+			<%
+				}
+			%>
+			<%
+				if (request.getAttribute("streetName_error") != null) {
+			%>
+			<li class="error">Address error</li>
+			<%
+				}
+			%>
+			<%
+				if (request.getAttribute("city_error") != null) {
+			%>
+			<li class="error">City error</li>
+			<%
+				}
+			%>
+			<%
+				if (request.getAttribute("postCode_error") != null) {
+			%>
+			<li class="error">Post code error, only numbers allowed</li>
+			<%
+				}
+			%>
+			<%
+				if (request.getAttribute("country_error") != null) {
+			%>
+			<li class="error">Country error</li>
+			<%
+				}
+			%>
+			<%
 				if (request.getAttribute("date_format_error") != null) {
 			%>
 			<li class="error">Date of birth error</li>
@@ -48,6 +83,7 @@
 				}
 			%>
 
+		
 		</ul>
 	</fieldset>
 	<%
@@ -73,6 +109,30 @@
 					</div>
 
 					<div class="inputfield">
+						<label for="email" class="inputLabel">Email Address:</label> <input
+							name="email" type="text" placeholder="name@email.com"></input>
+					</div>
+
+					<div class="inputfield">
+						<label for="street-name" class="inputLabel"> Address:</label> <input
+							name="street-name" type="text" placeholder="heystreet 22"></input>
+					</div>
+					<div class="inputfield">
+						<label for="city" class="inputLabel">City:</label> <input
+							name="city" type="text" placeholder="city"></input>
+					</div>
+
+					<div class="inputfield">
+						<label for="post-code" class="inputLabel">Post code:</label> <input
+							name="post-code" type="text" placeholder="eg: 555 33"></input>
+					</div>
+
+					<div class="inputfield">
+						<label for="country" class="inputLabel">Country:</label> <input
+							name="country" type="text" placeholder="eg: Sweden"></input>
+					</div>
+
+					<div class="inputfield">
 						<label for="dob" class="inputLabel">Date of birth:</label> <input
 							name="dob" type="text" placeholder="DD/MM/YYYY"></input>
 					</div>
@@ -84,11 +144,11 @@
 							<option value="Female">Female</option>
 						</select>
 					</div>
-			</form>
 			</fieldset>
 			<div class="inputField" id="submitField">
 				<input id="submitBtn" type="submit" value="Create user"></input>
 			</div>
+			</form>
 
 		</div>
 	</div>

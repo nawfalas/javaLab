@@ -12,12 +12,12 @@
 	border: 15px solid #427ddc;
 	border-radius: 5px;
 	background-color: #3f86d9;
-	text-align: center;
+	text-align: right;
 	position: relative;
 	list-style: name;
 	list-style-position: inside;
 	height: 30%;
-	width: 30%;
+	width: 40%;
 	
 }
 .center{
@@ -72,7 +72,8 @@
 }
 
 .inputField{
-	text-align: left;
+	
+	text-align: right;
 	font-family: arial;
 	font-size: 24px;
 	line-height: 25px;
@@ -82,6 +83,7 @@
 }
 
 .inputLabel{
+	align: right;
 	font-family: arial;
 	color: #e6e6e6;
 	margin-right: 10px;
@@ -89,10 +91,12 @@
 }
 
 .input, select{
-	vertical-align: middle;
+	
+	vertical-align: right;
 	height: 40px;
 	padding-left: 7px;
 }
+
 
 #submitField{
 	text-align: center;

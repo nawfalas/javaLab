@@ -36,7 +36,7 @@ public class RedirectUserLogin extends HttpServlet {
 		out.println("<meta http-equiv=");
 		out.println("refresh");
 		out.println("content=");
-		out.println("2;url=http://localhost:8080/web7/UserLogin");
+		out.println("2;url=http://localhost:8080/webshop/UserLogin");
 		out.println("/>");
 	}
 
