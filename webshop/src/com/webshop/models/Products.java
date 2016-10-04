@@ -1,102 +1,71 @@
 package com.webshop.models;
 import java.util.ArrayList;
 
-public class Product {
+public class Products {
+	private ArrayList<Product> products;
 
-	private int articleId;
-	private String description;
-	private int price;
-	private ArrayList<Integer> productNrs;
-
-	public Product(int articleId, String description, int price){
-		this.articleId = articleId;
-		this.description = description;
-		this.price = price;
-		this.productNrs = new ArrayList<>();
+	public Products() {
+		this.products = new ArrayList<>();
 	}
 
-	public Product(int articleId, String description, int price, ArrayList<Integer> productNrs){
-		this.articleId = articleId;
-		this.description = description;
-		this.price = price;
-		this.productNrs = productNrs;new ArrayList<>();
+	public Products(ArrayList<Product> products) {
+		this.products = products;
 	}
 
-
-	public int getAmount(){
-		return productNrs.size();
+	public void addProduct(Product product){
+		this.products.add(product);
 	}
 
-	public boolean doesProductNrExist(int productNr){
-		for(int i=0;i<productNrs.size();i++){
-			if(productNrs.get(i).equals(productNrs)){
+	public void addProduct(int articleId, String description, int price){
+		this.products.add(new Product(articleId, description, price));
+	}
+
+	public void addProduct(int articleId,String description,int price,ArrayList<Integer> productNrs){
+		this.products.add(new Product(articleId, description, price, productNrs));
+	}
+
+	public boolean doesThisProductNrExist(int productNr){
+		for(int i=0;i<products.size();i++){
+			if(products.get(i).doesProductNrExist(productNr)){
 				return true;
 			}
 		}
 		return false;
 	}
 
-	private void setProductNrs(ArrayList<Integer> productNrs){
-		this.productNrs = productNrs;
-	}
 
-	private ArrayList<Integer> getCloneOfProductNrs(){
-		return (ArrayList<Integer>) productNrs.clone();
-	}
-
-	public void addProductNr(int productNr){
-		productNrs.add(productNr);
-	}
-
-	public int getAndRemoveFirstProductNr() throws Exception{
-		if(productNrs.size()>0){
-			return productNrs.remove(0);
-		}else{
-			throw new Exception("no products");
-		}
-	}
-
-	public int getFirstProductNr() throws Exception{
-		if(productNrs.size()>0){
-			return productNrs.get(0);
-		}else{
-			throw new Exception("no products");
-		}
-	}
-
-	public boolean removeProductNrByNr(int productNr) throws Exception{
-		if(productNrs.size()>0){
-			for(int i=0;i<productNrs.size();i++){
-				if(productNrs.get(i).equals(productNr)){
-					productNrs.remove(i);
-					return true;
-				}
-			}
+	public boolean addProductNrById(int productNr, int articleId){
+		Product product = this.getProductById(articleId);
+		if(product!=null){
+			product.addProductNr(productNr);
+			return true;
 		}
 		return false;
 	}
 
-	public int getArticleId() {
-		return articleId;
+	public Product getProductById(int articletId){
+		for(int i=0;i<products.size();i++){
+			if(products.get(i).getArticleId()==articletId){
+				return products.get(i);
+			}
+		}
+		return null;
 	}
 
-	public void setArticleId(int articleId) {
-		this.articleId = articleId;
+	public Product getAndRemoveProductById(int articletId){
+		for(int i=0;i<products.size();i++){
+			if(products.get(i).getArticleId()==articletId){
+				return products.remove(i);
+			}
+		}
+		return null;
 	}
 
-	public String getDescription() {
-		return description;
+	public void setProducts(ArrayList<Product> products){
+		this.products = products;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public int getPrice() {
-		return price;
-	}
-
-	public void setPrice(int price) {
-		this.price = price;
+	public ArrayList<Product> getCloneOfProducts(){
+		return (ArrayList<Product>) products.clone();
 	}
 }
